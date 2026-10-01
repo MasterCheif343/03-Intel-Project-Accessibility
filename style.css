@@ -50,22 +50,25 @@ header {
   line-height: 1.55;
 }
 
-/* Arrange the timeline cards in one horizontal row. */
-section {
-  display: flex;
-  gap: 20px;
-  max-width: 970px;
+/* Add space above the Bootstrap timeline grid. */
+.timeline-section {
   margin: 44px auto 0;
   padding-bottom: 12px;
-  overflow-x: auto;
-  overflow-y: hidden;
+}
+
+.carousel-section {
+  margin-top: 44px;
+}
+
+.carousel-item img {
+  height: 360px;
+  object-fit: cover;
 }
 
 /* Style each timeline card. */
-section > div {
+.timeline-card {
   position: relative;
   box-sizing: border-box;
-  flex: 0 0 350px;
   height: 350px;
   overflow: hidden;
   background-color: white;
@@ -74,8 +77,8 @@ section > div {
 }
 
 /* Hide the original headings; the overlay contains the visible card text. */
-section > div > h2,
-section > div > h3 {
+.timeline-card > h2,
+.timeline-card > h3 {
   display: none;
 }
 
@@ -109,6 +112,11 @@ section > div > h3 {
   font-size: 18px;
 }
 
+.card-content h3 i {
+  margin-inline-end: 8px;
+  color: #43c9f4;
+}
+
 .card-content p {
   margin: 0;
   font-size: 15px;
@@ -117,18 +125,46 @@ section > div > h3 {
   transition: opacity 0.2s ease;
 }
 
+.learn-more {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 8px 12px;
+  border: 1px solid #43c9f4;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  opacity: 0;
+  transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+
+.learn-more:hover,
+.learn-more:focus {
+  background-color: #43c9f4;
+  color: #123b66;
+}
+
 /* Reveal the description when the user hovers or focuses on a card. */
-section > div:hover .card-content,
-section > div:focus .card-content {
+.timeline-card:hover .card-content,
+.timeline-card:focus .card-content,
+.timeline-card:focus-within .card-content {
   background-color: rgba(23, 76, 135, 0.94);
 }
 
-section > div:hover .card-content p,
-section > div:focus .card-content p {
+.timeline-card:hover .card-content p,
+.timeline-card:focus .card-content p,
+.timeline-card:focus-within .card-content p {
   opacity: 1;
 }
 
-section > div:focus {
+.timeline-card:hover .learn-more,
+.timeline-card:focus .learn-more,
+.timeline-card:focus-within .learn-more {
+  opacity: 1;
+}
+
+.timeline-card:focus,
+.timeline-card:focus-within {
   box-shadow: 0 0 0 3px #43c9f4;
 }
 
@@ -136,6 +172,56 @@ body > p {
   margin: 38px 0;
   text-align: center;
   font-size: 16px;
+}
+
+.newsletter-section {
+  margin-top: 44px;
+  margin-bottom: 44px;
+}
+
+.newsletter-content {
+  padding: 32px 24px;
+  border-top: 4px solid #43c9f4;
+  background-color: white;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.newsletter-content h2 {
+  margin-bottom: 10px;
+  color: #164d8b;
+  font-size: 28px;
+}
+
+.newsletter-content p {
+  margin-bottom: 24px;
+}
+
+.site-footer {
+  padding: 28px 0;
+  background-color: #123b66;
+  color: white;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.site-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.site-footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.site-footer a:hover,
+.site-footer a:focus {
+  color: #43c9f4;
+  text-decoration: underline;
 }
 
 /* Keep the hero and cards readable on smaller screens. */
@@ -153,8 +239,12 @@ body > p {
     font-size: 17px;
   }
 
-  section {
+  .timeline-section {
     margin: 30px 20px 0;
-    overflow-x: auto;
+  }
+
+  .newsletter-section {
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
 }
