@@ -1,0 +1,160 @@
+/* Set the page font, spacing, and background color. */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+  color: #222;
+  font-family: Arial, sans-serif;
+}
+
+/* Create the blue hero area at the top of the page. */
+header {
+  height: 395px;
+  background: linear-gradient(to right, #2388c7, #164d8b);
+  color: white;
+  text-align: center;
+}
+
+#hero {
+  width: 600px;
+  max-width: 90%;
+  margin: 0 auto;
+  padding-top: 44px;
+}
+
+/* Make the logo in the hero section smaller. */
+#hero img {
+  width: 90px;
+  height: auto;
+}
+
+#hero h1 {
+  margin: 31px 0 15px;
+  font-size: 46px;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+#hero h1::after {
+  display: block;
+  width: 90px;
+  height: 3px;
+  margin: 17px auto 22px;
+  background-color: #43c9f4;
+  content: "";
+}
+
+#hero p {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.55;
+}
+
+/* Arrange the timeline cards in one horizontal row. */
+section {
+  display: flex;
+  gap: 20px;
+  max-width: 970px;
+  margin: 44px auto 0;
+  padding-bottom: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* Style each timeline card. */
+section > div {
+  position: relative;
+  box-sizing: border-box;
+  flex: 0 0 350px;
+  height: 350px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  outline: none;
+}
+
+/* Hide the original headings; the overlay contains the visible card text. */
+section > div > h2,
+section > div > h3 {
+  display: none;
+}
+
+.card-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-content {
+  position: absolute;
+  inset: 0;
+  box-sizing: border-box;
+  padding: 20px 18px;
+  overflow-y: auto;
+  background-color: transparent;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  transition: background-color 0.2s ease;
+}
+
+.card-content h2 {
+  margin: 0 0 10px;
+  color: white;
+  font-size: 25px;
+}
+
+.card-content h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.card-content p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.45;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* Reveal the description when the user hovers or focuses on a card. */
+section > div:hover .card-content,
+section > div:focus .card-content {
+  background-color: rgba(23, 76, 135, 0.94);
+}
+
+section > div:hover .card-content p,
+section > div:focus .card-content p {
+  opacity: 1;
+}
+
+section > div:focus {
+  box-shadow: 0 0 0 3px #43c9f4;
+}
+
+body > p {
+  margin: 38px 0;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* Keep the hero and cards readable on smaller screens. */
+@media (max-width: 700px) {
+  header {
+    height: auto;
+    min-height: 395px;
+  }
+
+  #hero h1 {
+    font-size: 34px;
+  }
+
+  #hero p {
+    font-size: 17px;
+  }
+
+  section {
+    margin: 30px 20px 0;
+    overflow-x: auto;
+  }
+}
